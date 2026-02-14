@@ -13,7 +13,6 @@ import { FiCheckCircle } from "react-icons/fi";
 import { SlPencil } from "react-icons/sl";
 import { FaRegClock } from "react-icons/fa6";
 
-import Font from "react-font";
 import toast from "react-hot-toast";
 
 interface TaskProps {
@@ -198,7 +197,6 @@ function App() {
 
   
   return (
-    <Font family="Poppins">
       <main className="w-full min-h-screen flex flex-col items-center bg-linear-120 from-[#14203E] via-[#21388A] to-[#511F87]">
         <section>
           <div className="flex mt-8 gap-3 items-center justify-center">
@@ -416,7 +414,6 @@ function App() {
           ))}
         </section>
       </main>
-    </Font>
   );
 }
 

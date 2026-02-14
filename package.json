@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "engines": {
-  "node": "20.x"
+    "node": "20.x"
   },
   "type": "module",
   "scripts": {
@@ -16,7 +16,6 @@
     "@tailwindcss/vite": "^4.1.14",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-font": "^1.2.1",
     "react-fonts": "^1.1.1",
     "react-hot-toast": "^2.6.0",
     "react-icons": "^5.5.0",
