@@ -21,7 +21,7 @@ Projeto criado para praticar componentização, tipagem forte com TypeScript, ge
 ✔️ Editar tarefas  
 ✔️ Concluir tarefas  
 ✔️ Filtrar por status (todas, pendentes, concluídas)  
-✔️ Persistência com localStorage
+✔️ Persistência com localStorage   
 ✔️ Alertas personalizados
 
 ---
