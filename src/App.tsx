@@ -103,6 +103,7 @@ function App() {
       created: new Date(),
     };
 
+    toast.success("Tafera adicionada!")
     setTasks((tarefas) => [...tarefas, newTask]);
     setInput("");
   }
@@ -161,6 +162,7 @@ function App() {
         enabled: false,
         task: "",
       });
+      toast.success("Tarefa editada!")
     }else{
       toast.error("Essa tarefa já existe!");
       return;
