@@ -366,7 +366,7 @@ function App() {
                     )}
 
                     <p
-                      className={`text-white first-letter:capitalize break-words ${item.status ? "line-through" : ""}`}
+                      className={`text-white first-letter:capitalize break-all ${item.status ? "line-through" : ""}`}
                     >
                       {item.task}
                     </p>
