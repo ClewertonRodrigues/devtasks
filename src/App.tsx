@@ -149,7 +149,7 @@ function App() {
       (tarefa) => tarefa.task.toLowerCase() === inputEdit.toLowerCase(),
     );
 
-    if (task === inputEdit || !tarefaEditExisting){
+    if (task.toLowerCase() === inputEdit.toLowerCase() || !tarefaEditExisting){
       const findIndexTask = tasks.findIndex(
         (item) => item.task === editTask.task,
       );
