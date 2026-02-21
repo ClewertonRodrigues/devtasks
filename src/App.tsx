@@ -4,6 +4,7 @@ import { CounterTasks } from "./components/counterTasks";
 import { FilterTasks } from "./components/filtersTasks";
 import { MessageInfo } from "./components/messageInfo";
 import { ButtonActions } from "./components/buttonActions";
+import { ButtonModal } from "./components/buttonModal";
 
 import { CiSquareCheck } from "react-icons/ci";
 import { IoIosList } from "react-icons/io";
@@ -40,6 +41,9 @@ function App() {
     enabled: false,
     task: "",
   });
+
+  const [modal, setModal] = useState(false)
+  const [idTaskDelete, setIdTaskDelete] = useState("")
 
   useEffect(() => {
     const tasksSaved = localStorage.getItem("@tasks");
@@ -108,11 +112,23 @@ function App() {
     setInput("");
   }
 
-  function handleDeleteTask(id: string) {
-    const removeTask = tasks.filter((item) => item.id !== id);
-    setTasks(removeTask);
+  function confirmDeleteTask(action: boolean){
+    if(action){
+      const removeTask = tasks.filter((item) => item.id !== idTaskDelete);
+      setTasks(removeTask);
+      setIdTaskDelete("")
+      setModal(!modal)
 
-    toast.success("Tarefa exluída!");
+      toast.success("Tarefa exluída!");
+    }else{
+      setModal(!modal)
+      setIdTaskDelete("")
+    }
+  }
+
+  function handleDeleteTask(id: string) {
+    setModal(!modal);
+    setIdTaskDelete(id);
   }
 
   function handleEditTask(task: string) {
@@ -199,7 +215,32 @@ function App() {
 
   
   return (
-      <main className="w-full min-h-screen flex flex-col items-center bg-linear-120 from-[#14203E] via-[#21388A] to-[#511F87]">
+      <main className="w-full min-h-screen flex flex-col items-center bg-linear-120 from-[#14203E] via-[#21388A] 
+      to-[#511F87] relative">
+
+        {modal && (
+          <div className="min-h-screen w-full flex justify-center items-center absolute backdrop-blur-md z-50">
+            <div className="bg-white/20 p-5 rounded-xl mx-2">
+              <span className="text-center text-white text-xl font-bold">Confirmar exclusão</span>
+              <p className="mb-6 mt-2 text-gray-300">Tem certeza que deseja excluir esta tarefa?</p>
+
+              <div className="flex justify-between">
+                <ButtonModal
+                  title="Cancelar"
+                  style="bg-red-500 hover:bg-red-700"
+                  onClick={() => confirmDeleteTask(false)}
+                />
+                <ButtonModal
+                  title="Confirmar"
+                  style="bg-green-500 hover:bg-green-600"
+                  onClick={() => confirmDeleteTask(true)}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+        
+
         <section>
           <div className="flex mt-8 gap-3 items-center justify-center">
             <CiSquareCheck
