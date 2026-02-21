@@ -1,4 +1,5 @@
 import { FormEvent, useState, useRef, useEffect, useMemo } from "react";
+import 'animate.css';
 
 import { CounterTasks } from "./components/counterTasks";
 import { FilterTasks } from "./components/filtersTasks";
@@ -220,7 +221,7 @@ function App() {
 
         {modal && (
           <div className="min-h-screen w-full flex justify-center items-center absolute backdrop-blur-md z-50">
-            <div className="bg-white/20 p-5 rounded-xl mx-2">
+            <div className="bg-white/20 p-5 rounded-xl mx-2 animate__bounceIn">
               <span className="text-center text-white text-xl font-bold">Confirmar exclusão</span>
               <p className="mb-6 mt-2 text-gray-300">Tem certeza que deseja excluir esta tarefa?</p>
 
